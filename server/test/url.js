@@ -7,7 +7,7 @@ let UrlModel = require('../models/url');
 //Require the dev-dependencies
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-let server = require('../server');
+let server = require('../app');
 let config = require('config');
 let should = chai.should();
 

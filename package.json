@@ -20,7 +20,7 @@
   "scripts": {
     "start": "yarn run build && yarn run start:server",
     "start:ui": "react-scripts start",
-    "start:server": "cd server && node index.js",
+    "start:server": "node server.js",
     "build": "react-scripts build",
     "test": "yarn run test:ui && yarn run test:server",
     "test:ui": "CI=true react-scripts test --env=jsdom",

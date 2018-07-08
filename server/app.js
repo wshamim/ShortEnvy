@@ -9,12 +9,18 @@ const config = require('config');
 const urlRoutes = require('./routes/url');
 
 console.log('DBHost:', config.DBHost);
-const mongooseHost = process.env.MONGODB_URI || config.DBHost;
+const mongooseHost = process.env.MONGODB_URI ? process.env.MONGODB_URI : config.DBHost;
 const mongooseOptions = {};
 if (config.DBAuthUser && config.DBAuthUser !== '' && config.DBAuthPass && config.DBAuthPass !== '') {
   mongooseOptions.auth = {
-    user: process.env.MONGODB_USER || config.DBAuthUser,
-    password: process.env.MONGODB_PASS || config.DBAuthPass
+    user: config.DBAuthUser,
+    password: config.DBAuthPass
+  };
+}
+if (process.env.MONGODB_USER && process.env.MONGODB_PASS) {
+  mongooseOptions.auth = {
+    user: process.env.MONGODB_USER,
+    password: process.env.MONGODB_PASS
   };
 }
 mongoose.connect(
