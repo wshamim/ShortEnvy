@@ -1,6 +1,6 @@
 {
-  "DBHost": "mongodb://shortenvy.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false",
-  "DBAuthUser": "shortenvy",
-  "DBAuthPass": "OSeC9iuI6Ogrt2iuy8wAoTYBX4UNINE3dmBdmUyzkZba7PALllNDanhhRJI5CHRB1BJaT0vdeLnnqdy4BezVfw==",
-  "WebserverHost": "http://shortenvyurl.azurewebsites.net/"
+  "DBHost": "mongodb://localhost/short_envy",
+  "DBAuthUser": "",
+  "DBAuthPass": "",
+  "WebserverHost": "http://127.0.0.1:8000/"
 }
