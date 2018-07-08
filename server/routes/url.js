@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const UrlModel = require('../models/url');
 const config = require('config');
 
+const webhost = process.env.HOST || config.WebserverHost;
+
 const resolveUrl = (req, res) => {
   const short_id = req.params.short_id;
   // check if url already exists in DB
@@ -9,7 +11,7 @@ const resolveUrl = (req, res) => {
     if (doc) {
       res.redirect(doc.long_url);
     } else {
-      res.redirect(config.WebserverHost);
+      res.redirect(webhost);
     }
   });
 };
@@ -20,7 +22,7 @@ const shortenUrl = (req, res) => {
   // Check if url already exists in DB
   UrlModel.findOne({ long_url: longUrl }, (err, doc) => {
     if (doc) {
-      shortUrl = config.WebserverHost + doc.short_id;
+      shortUrl = webhost + doc.short_id;
       res.send({
         shortUrl,
         longUrl,
@@ -36,7 +38,7 @@ const shortenUrl = (req, res) => {
       });
       res.send({
         longUrl,
-        shortUrl: config.WebserverHost + link.short_id,
+        shortUrl: webhost + link.short_id,
         error: '',
         msg: 'Url Shortened successfully.'
       });

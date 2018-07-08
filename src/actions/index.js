@@ -29,7 +29,7 @@ const postData = (url = ``, data = {}) => {
 };
 
 export default function shortenUrl(longUrl) {
-  const API_URL = 'http://127.0.0.1:8000/api/shorten';
+  const API_URL = 'http://shortenvyurl.azurewebsites.net/api/shorten';
   return dispatch => {
     dispatch(sendUrl(longUrl));
     postData(API_URL, {
